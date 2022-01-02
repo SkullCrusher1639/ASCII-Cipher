@@ -1,2 +1,3 @@
 # ASCII-Cipher
-A simple console based application that ciphers/decipher a text file to/from ASCII text format 
+A simple console based application that ciphers/decipher a text file to/from ASCII text format. 
+Program Idea From a video of CodeBeauty's YouTube Channel.
