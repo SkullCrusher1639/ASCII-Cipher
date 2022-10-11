@@ -154,9 +154,8 @@ void decipher()
     }
 
     string data;
-    string number = "";
+	char ASCII = '\0';
     int len;
-    int ascii_num;
     while (getline(input_file, data))
     {
         len = data.length();
@@ -164,15 +163,18 @@ void decipher()
         {
             if (data[i] != '\0')
             {
-                number = number + data[i];
+                if (ASCII != 0) {
+                    int temp = ASCII;
+                    temp *= 10;
+                    ASCII = (char)temp;
+                }
+                ASCII += data[i] - 48;
                 continue;
             }
-            else if(data[i] == '\0')
+            else if (data[i] == '\0')
             {
-                stringstream to_convert_int(number); // This obtained from research on the internet/Stackoverflow
-                to_convert_int >> ascii_num;
-                output_file << static_cast <char> (ascii_num);
-                number = "";
+                output_file << ASCII;
+                ASCII = '\0';
             }
         }
         output_file << endl;
